@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
-    let searchText = Variable("")
     var managedObjectContext: NSManagedObjectContext!
     let disposeBag = DisposeBag()
     
