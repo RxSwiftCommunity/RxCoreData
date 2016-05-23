@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import RxSwift
 
-public class FetchedResultsControllerSectionObserver : NSObject {
+public final class FetchedResultsControllerSectionObserver : NSObject {
     
     typealias Observer = AnyObserver<[NSFetchedResultsSectionInfo]>
     
