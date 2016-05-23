@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'RxCoreData_Example' do
+  pod 'RxSwift', '~> 2.5'
+  pod 'RxCocoa', '~> 2.5'
+  pod 'RxDataSources', '~> 0.8.1'
+  pod 'RxCoreData', :path => '../'
+
+  target 'RxCoreData_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
