@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.license               = { :type => "MIT", :file => "LICENSE.md" }
     s.author                = { "Scott Gardner" => "scott.gardner@mac.com" }
     s.source                = { :git => "https://github.com/RxSwiftCommunity/RxCoreData.git", :tag => s.version.to_s }
-    s.social_media_url      = 'https://twitter.com/scotteg'
+    s.social_media_url      = "https://twitter.com/scotteg"
 
     s.ios.deployment_target = '9.1'
 
@@ -29,5 +29,4 @@ Pod::Spec.new do |s|
 
     s.dependency 'RxSwift', '~> 2.5'
     s.dependency 'RxCocoa', '~> 2.5'
-    s.dependency 'RxDataSources', '~> 0.8.1'
 end

@@ -3,7 +3,6 @@ PODS:
     - RxSwift (~> 2.5)
   - RxCoreData (0.1.0):
     - RxCocoa (~> 2.5)
-    - RxDataSources (~> 0.8.1)
     - RxSwift (~> 2.5)
   - RxDataSources (0.8.1):
     - RxCocoa (~> 2.2)
@@ -22,7 +21,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
-  RxCoreData: 486ebd3cc2b81d813c7e04bc2af06d2455e68107
+  RxCoreData: 79c58fc466c890f966b29ed2ec172c79797db33e
   RxDataSources: 4a87345847d66ef84ecc10bdfa189190f3cd6b12
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
 
