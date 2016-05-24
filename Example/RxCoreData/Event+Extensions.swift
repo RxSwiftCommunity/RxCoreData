@@ -29,6 +29,10 @@ extension Event : Persistable {
         return "Event"
     }
     
+    static var primaryAttributeName: String {
+        return "id"
+    }
+    
     init(entity: NSManagedObject) {
         id = entity.valueForKey("id") as! String
         date = entity.valueForKey("date") as! NSDate

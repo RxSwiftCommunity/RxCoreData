@@ -34,7 +34,7 @@ public final class FetchedResultsControllerEntityObserver : NSObject {
         sendNextElement()
     }
     
-    func sendNextElement() {
+    private func sendNextElement() {
         let entities = (self.frc.fetchedObjects as? [NSManagedObject]) ?? []
         observer.on(.Next(entities))
     }

@@ -12,7 +12,10 @@ import CoreData
 public protocol Persistable {
     
     static var entityName: String { get }
-
+    
+    /// The attribute name to be used to uniquely identify each instance.
+    static var primaryAttributeName: String { get }
+    
     var identity: String { get }
 
     init(entity: NSManagedObject)

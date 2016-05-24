@@ -34,7 +34,7 @@ public final class FetchedResultsControllerSectionObserver : NSObject {
         sendNextElement()
     }
     
-    func sendNextElement() {
+    private func sendNextElement() {
         let sections = self.frc.sections ?? []
         observer.on(.Next(sections))
     }
