@@ -21,16 +21,15 @@ public extension NSManagedObjectContext {
      */
     func rx_entities(fetchRequest: NSFetchRequest, sectionNameKeyPath: String? = nil, cacheName: String? = nil) -> Observable<[NSManagedObject]> {
         return Observable.create { observer in
-            let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
-            
-            let observerAdapter = FetchedResultsControllerEntityObserver(observer: observer, frc: frc)
-            
-            return AnonymousDisposable {
-                observerAdapter.dispose()
-            }
+			
+			let observerAdapter = FetchedResultsControllerEntityObserver(observer: observer, fetchRequest: fetchRequest, managedObjectContext: self, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
+			
+			return AnonymousDisposable {
+				observerAdapter.dispose()
+			}
         }
     }
-    
+	
     /**
      Executes a fetch request and returns the fetched section objects as an `Observable` array of `NSFetchedResultsSectionInfo`.
      - parameter fetchRequest: an instance of `NSFetchRequest` to describe the search criteria used to retrieve data from a persistent store
