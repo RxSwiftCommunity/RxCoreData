@@ -15,8 +15,8 @@ public final class FetchedResultsControllerEntityObserver : NSObject {
 	
 	typealias Observer = AnyObserver<[NSManagedObject]>
 	
-	let observer: Observer
-	let disposeBag = DisposeBag()
+	private let observer: Observer
+	private let disposeBag = DisposeBag()
 	private let frc: NSFetchedResultsController
 	private let subscriberContext: NSManagedObjectContext
 	private let observingContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
@@ -28,11 +28,11 @@ public final class FetchedResultsControllerEntityObserver : NSObject {
 		self.frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: observingContext, sectionNameKeyPath: sectionNameKeyPath, cacheName: name)
 		super.init()
 		
-		// TODO: Implement `automaticallyMergesChangesFromParent` whit iOs 10, instead of using NSManagedObjectContextDidSaveNotification
+		// TODO: Implement `automaticallyMergesChangesFromParent` with iOS 10, instead of using NSManagedObjectContextDidSaveNotification
 		NSNotificationCenter.defaultCenter()
 			.rx_notification(NSManagedObjectContextDidSaveNotification, object: self.subscriberContext)
-			.subscribeNext() {
-				self.observingContext.mergeChangesFromContextDidSaveNotification($0)
+			.subscribeNext() { [weak self] in
+				self?.observingContext.mergeChangesFromContextDidSaveNotification($0)
 			}
 			.addDisposableTo(disposeBag)
 		
@@ -52,6 +52,7 @@ public final class FetchedResultsControllerEntityObserver : NSObject {
 	private func sendNextElement() {
 		self.observingContext.performBlock {
 			let entities = (self.frc.fetchedObjects as? [NSManagedObject]) ?? []
+            
 			self.subscriberContext.performBlock({
 				let mappedEntities = entities.map { self.subscriberContext.objectWithID($0.objectID)}
 				self.observer.on(.Next(mappedEntities))
