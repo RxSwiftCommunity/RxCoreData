@@ -10,14 +10,14 @@ import Foundation
 import CoreData
 import RxSwift
 
-public final class FetchedResultsControllerSectionObserver : NSObject {
+public final class FetchedResultsControllerSectionObserver<T: NSManagedObject> : NSObject, NSFetchedResultsControllerDelegate {
     
     typealias Observer = AnyObserver<[NSFetchedResultsSectionInfo]>
     
     let observer: Observer
-    let frc: NSFetchedResultsController
+    let frc: NSFetchedResultsController<T>
     
-    init(observer: Observer, frc: NSFetchedResultsController) {
+    init(observer: Observer, frc: NSFetchedResultsController<T>) {
         self.observer = observer
         self.frc = frc
         
@@ -28,25 +28,21 @@ public final class FetchedResultsControllerSectionObserver : NSObject {
         do {
             try self.frc.performFetch()
         } catch let e {
-            observer.on(.Error(e))
+            observer.on(.error(e))
         }
         
         sendNextElement()
     }
     
-    private func sendNextElement() {
+    fileprivate func sendNextElement() {
         let sections = self.frc.sections ?? []
-        observer.on(.Next(sections))
+        observer.on(.next(sections))
     }
     
-}
-
-extension FetchedResultsControllerSectionObserver : NSFetchedResultsControllerDelegate {
-    
-    public func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    @objc
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         sendNextElement()
     }
-    
 }
 
 extension FetchedResultsControllerSectionObserver : Disposable {

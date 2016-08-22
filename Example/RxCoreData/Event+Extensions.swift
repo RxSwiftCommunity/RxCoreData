@@ -8,7 +8,8 @@
 
 import Foundation
 import CoreData
-import RxDataSources
+// Cant install RxDatasource with Cocoapods yet
+//import RxDataSources
 import RxCoreData
 
 func == (lhs: Event, rhs: Event) -> Bool {
@@ -17,13 +18,14 @@ func == (lhs: Event, rhs: Event) -> Bool {
 
 extension Event : Equatable { }
 
-extension Event : IdentifiableType {
+extension Event/* : IdentifiableType*/ {
     typealias Identity = String
     
     var identity: Identity { return id }
 }
 
 extension Event : Persistable {
+    typealias T = NSManagedObject
     
     static var entityName: String {
         return "Event"
@@ -33,12 +35,12 @@ extension Event : Persistable {
         return "id"
     }
     
-    init(entity: NSManagedObject) {
-        id = entity.valueForKey("id") as! String
-        date = entity.valueForKey("date") as! NSDate
+    init(entity: T) {
+        id = entity.value(forKey: "id") as! String
+        date = entity.value(forKey: "date") as! Date
     }
     
-    func update(entity: NSManagedObject) {
+    func update(_ entity: T) {
         entity.setValue(id, forKey: "id")
         entity.setValue(date, forKey: "date")
         

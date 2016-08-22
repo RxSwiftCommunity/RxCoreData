@@ -178,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RxCoreData_Example" */;
 			buildPhases = (
-				3F4867CBB9D45E1759703C4B /* 📦 Check Pods Manifest.lock */,
+				3F4867CBB9D45E1759703C4B /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				77EECB9E50343E5362FDE498 /* 📦 Embed Pods Frameworks */,
-				B289F54CCD563206839E6E2B /* 📦 Copy Pods Resources */,
+				77EECB9E50343E5362FDE498 /* [CP] Embed Pods Frameworks */,
+				B289F54CCD563206839E6E2B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,12 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RxCoreData_Tests" */;
 			buildPhases = (
-				CF5EA17E47B30114DF76F5C2 /* 📦 Check Pods Manifest.lock */,
+				CF5EA17E47B30114DF76F5C2 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				BE3F737842926DCBAEF33B1C /* 📦 Embed Pods Frameworks */,
-				4451D4636FCC1FBD952AA0E5 /* 📦 Copy Pods Resources */,
+				BE3F737842926DCBAEF33B1C /* [CP] Embed Pods Frameworks */,
+				4451D4636FCC1FBD952AA0E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,9 +227,11 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -274,14 +276,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F4867CBB9D45E1759703C4B /* 📦 Check Pods Manifest.lock */ = {
+		3F4867CBB9D45E1759703C4B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,14 +291,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		4451D4636FCC1FBD952AA0E5 /* 📦 Copy Pods Resources */ = {
+		4451D4636FCC1FBD952AA0E5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,14 +306,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Tests/Pods-RxCoreData_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		77EECB9E50343E5362FDE498 /* 📦 Embed Pods Frameworks */ = {
+		77EECB9E50343E5362FDE498 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,14 +321,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Example/Pods-RxCoreData_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B289F54CCD563206839E6E2B /* 📦 Copy Pods Resources */ = {
+		B289F54CCD563206839E6E2B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,14 +336,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Example/Pods-RxCoreData_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE3F737842926DCBAEF33B1C /* 📦 Embed Pods Frameworks */ = {
+		BE3F737842926DCBAEF33B1C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,14 +351,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Tests/Pods-RxCoreData_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF5EA17E47B30114DF76F5C2 /* 📦 Check Pods Manifest.lock */ = {
+		CF5EA17E47B30114DF76F5C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +509,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
@@ -522,6 +525,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
@@ -539,6 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
@@ -552,6 +557,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Release;

@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 import RxSwift
 import RxCocoa
-import RxDataSources
+// Cant install RxDatasource with Cocoapods yet
+//import RxDataSources
 import RxCoreData
 
 class ViewController: UIViewController {
@@ -29,29 +30,31 @@ class ViewController: UIViewController {
     }
     
     func bindUI() {
-        addBarButtonItem.rx_tap
+        addBarButtonItem.rx.tap
             .map { _ in
-                Event(id: NSUUID().UUIDString, date: NSDate())
-            }
-            .subscribeNext { [unowned self] event in
-                _ = try? self.managedObjectContext.update(event)
-            }
+                Event(id: UUID().uuidString, date: Date())
+            }.subscribe(onNext: { [weak self] (event) in
+                _ = try? self?.managedObjectContext.rx.update(event)
+            })
             .addDisposableTo(disposeBag)
     }
     
     func configureTableView() {
-        tableView.editing = true
+        tableView.isEditing = true
         
-        /*
+        
          // Non-animated
-         managedObjectContext.rx_entities(Event.self, sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
-         .bindTo(tableView.rx_itemsWithCellIdentifier("Cell")) { row, event, cell in
-         cell.textLabel?.text = "\(event.date)"
-         }
-         .addDisposableTo(disposeBag)
-         */
+        
+         managedObjectContext.rx.entities(Event.self,
+                                          sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+            .bindTo(tableView.rx.items(cellIdentifier: "Cell")) { row, event, cell in
+                cell.textLabel?.text = "\(event.date)"
+            }
+            .addDisposableTo(disposeBag)
+    
         
         // Animated
+        /* Cant install RxDatasource with Cocoapods yet
         let animatedDataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<String, Event>>()
         animatedDataSource.configureCell = { dateSource, tableView, indexPath, event in
             let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
@@ -65,14 +68,17 @@ class ViewController: UIViewController {
             }
             .bindTo(tableView.rx_itemsWithDataSource(animatedDataSource))
             .addDisposableTo(disposeBag)
-        
-        self.tableView.rx_itemDeleted
-            .map { [unowned self] indexPath in
-                try self.tableView.rx_modelAtIndexPath(indexPath) as Event
+        */
+        self.tableView.rx.itemDeleted.map { [unowned self] ip -> Event in
+                return try self.tableView.rx.modelAtIndexPath(ip)
             }
-            .subscribeNext { [unowned self] deletedEvent in
-                _ = try? self.managedObjectContext.delete(deletedEvent)
-            }
+            .subscribe(onNext: { [unowned self] (event) in
+                do {
+                    try self.managedObjectContext.rx.delete(event)
+                } catch {
+                    print(error)
+                }
+            })
             .addDisposableTo(disposeBag)
     }
 }

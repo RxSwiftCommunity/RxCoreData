@@ -1,14 +1,21 @@
 use_frameworks!
 
 target 'RxCoreData_Example' do
-  pod 'RxSwift', '~> 2.5'
-  pod 'RxCocoa', '~> 2.5'
-  pod 'RxDataSources', '~> 0.8.1'
-  pod 'RxCoreData', :path => '../'
+    pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'swift-3.0'
+    pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'swift-3.0'
+#pod 'RxDataSources', :git => 'https://github.com/RxSwiftCommunity/RxDataSources.git', :branch => 'swift-3.0'
+    pod 'RxCoreData', :path => '../'
+end
 
-  target 'RxCoreData_Tests' do
+target 'RxCoreData_Tests' do
     inherit! :search_paths
+    pod 'RxCoreData', :path => '../'
+end
 
-    
-  end
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
 end

@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import RxDataSources
+//import RxDataSources
 
+/* TODO: uncomment this line when RxDataSource will be available with swift 3.0
 extension String : IdentifiableType {
     
     public typealias Identity = String
@@ -18,3 +19,4 @@ extension String : IdentifiableType {
     }
     
 }
+*/
