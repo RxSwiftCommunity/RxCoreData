@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A017DD41D7D6F560027384A /* RxCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A017DD31D7D6F560027384A /* RxCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A0A91C31D7D75B9006E8CBD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A91C21D7D75B9006E8CBD /* CoreData.framework */; };
+		5A0A91C51D7D75BF006E8CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0A91C41D7D75BF006E8CBD /* Foundation.framework */; };
 		5A2FAD551D7D6F73007DECCB /* FetchedResultsControllerControllerEntityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FAD501D7D6F73007DECCB /* FetchedResultsControllerControllerEntityObserver.swift */; };
 		5A2FAD561D7D6F73007DECCB /* FetchedResultsControllerSectionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FAD511D7D6F73007DECCB /* FetchedResultsControllerSectionObserver.swift */; };
 		5A2FAD571D7D6F73007DECCB /* NSManagedObjectContext+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FAD521D7D6F73007DECCB /* NSManagedObjectContext+Rx.swift */; };
@@ -20,6 +22,8 @@
 		5A017DD01D7D6F550027384A /* RxCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A017DD31D7D6F560027384A /* RxCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxCoreData.h; sourceTree = "<group>"; };
 		5A017DD51D7D6F560027384A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A0A91C21D7D75B9006E8CBD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A0A91C41D7D75BF006E8CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A2FAD501D7D6F73007DECCB /* FetchedResultsControllerControllerEntityObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsControllerControllerEntityObserver.swift; sourceTree = "<group>"; };
 		5A2FAD511D7D6F73007DECCB /* FetchedResultsControllerSectionObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsControllerSectionObserver.swift; sourceTree = "<group>"; };
 		5A2FAD521D7D6F73007DECCB /* NSManagedObjectContext+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Rx.swift"; sourceTree = "<group>"; };
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0A91C51D7D75BF006E8CBD /* Foundation.framework in Frameworks */,
+				5A0A91C31D7D75B9006E8CBD /* CoreData.framework in Frameworks */,
 				5A2FAD5B1D7D6F84007DECCB /* RxCocoa.framework in Frameworks */,
 				5A2FAD5C1D7D6F84007DECCB /* RxSwift.framework in Frameworks */,
 			);
@@ -44,6 +50,8 @@
 		5A017DC61D7D6F550027384A = {
 			isa = PBXGroup;
 			children = (
+				5A0A91C41D7D75BF006E8CBD /* Foundation.framework */,
+				5A0A91C21D7D75B9006E8CBD /* CoreData.framework */,
 				5A2FAD591D7D6F84007DECCB /* RxCocoa.framework */,
 				5A2FAD5A1D7D6F84007DECCB /* RxSwift.framework */,
 				5A017DD21D7D6F550027384A /* RxCoreData */,
