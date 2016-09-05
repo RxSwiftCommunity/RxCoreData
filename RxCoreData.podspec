@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '8.0'
 
-    s.source_files = 'RxCoreData/Sources/**/*'
+    s.source_files = 'Sources/**/*'
 
     s.frameworks            = 'UIKit', 'CoreData'
 
