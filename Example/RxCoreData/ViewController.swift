@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     func configureTableView() {
         tableView.isEditing = true
         
-        
+        /*
          // Non-animated
         
          managedObjectContext.rx.entities(Event.self,
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
                 cell.textLabel?.text = "\(event.date)"
             }
             .addDisposableTo(disposeBag)
-    
+        */
         
         // Animated
 
