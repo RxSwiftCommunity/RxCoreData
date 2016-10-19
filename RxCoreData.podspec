@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                  = "RxCoreData"
-    s.version               = "0.2.1"
+    s.version               = "0.3.0-rc.1"
     s.summary               = "RxSwift extensions for Core Data"
     s.description           = <<-DESC
     Provides types and extensions for working with Core Data. For example, you can create and hook up a Core Data request to a table view with just a few lines of code:
@@ -27,6 +27,6 @@ Pod::Spec.new do |s|
 
     s.frameworks            = 'UIKit', 'CoreData'
 
-    s.dependency 'RxSwift', '~> 2.5'
-    s.dependency 'RxCocoa', '~> 2.5'
+    s.dependency 'RxSwift', '~> 3.0.0-rc.1'
+    s.dependency 'RxCocoa', '~> 3.0.0-rc.1'
 end

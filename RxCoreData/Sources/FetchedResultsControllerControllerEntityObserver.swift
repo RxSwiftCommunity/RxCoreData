@@ -11,48 +11,44 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-public final class FetchedResultsControllerEntityObserver : NSObject {
+public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : NSObject, NSFetchedResultsControllerDelegate {
 	
-	typealias Observer = AnyObserver<[NSManagedObject]>
+	typealias Observer = AnyObserver<[T]>
 	
-	private let observer: Observer
-	private let disposeBag = DisposeBag()
-	private let frc: NSFetchedResultsController
+	fileprivate let observer: Observer
+	fileprivate let disposeBag = DisposeBag()
+	fileprivate let frc: NSFetchedResultsController<T>
 	
-	init(observer: Observer, fetchRequest: NSFetchRequest, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName name: String?) {
+	
+	init(observer: Observer, fetchRequest: NSFetchRequest<T>, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName: String?) {
 		self.observer = observer
 		
-		self.frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: sectionNameKeyPath, cacheName: name)
+		self.frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
 		super.init()
 		
-		context.performBlock {
+		context.perform {
 			self.frc.delegate = self
 			
 			do {
 				try self.frc.performFetch()
 			} catch let e {
-				observer.on(.Error(e))
+				observer.on(.error(e))
 			}
 			
 			self.sendNextElement()
 		}
 	}
 	
-	private func sendNextElement() {
-		self.frc.managedObjectContext.performBlock {
-			let entities = (self.frc.fetchedObjects as? [NSManagedObject]) ?? []
-            self.observer.on(.Next(entities))
+	fileprivate func sendNextElement() {
+		self.frc.managedObjectContext.perform {
+			let entities = self.frc.fetchedObjects ?? []
+			self.observer.on(.next(entities))
 		}
 	}
 	
-}
-
-extension FetchedResultsControllerEntityObserver : NSFetchedResultsControllerDelegate {
-	
-	public func controllerDidChangeContent(controller: NSFetchedResultsController) {
+	public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		sendNextElement()
 	}
-	
 }
 
 extension FetchedResultsControllerEntityObserver : Disposable {

@@ -11,6 +11,6 @@ import Foundation
 struct Event {
     
     var id: String
-    var date: NSDate
+    var date: Date
     
 }
