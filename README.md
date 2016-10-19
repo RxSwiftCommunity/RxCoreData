@@ -11,13 +11,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+* Xcode 8.0
+* Swift 3.0
+
 ## Installation
 
 RxCoreData is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "RxCoreData"
+pod "RxCoreData", "~> 0.3.0-rc.1"
 ```
 
 ## Author
