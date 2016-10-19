@@ -79,5 +79,12 @@ class ViewController: UIViewController {
                 }
             })
             .addDisposableTo(disposeBag)
+        
+        animatedDataSource.canEditRowAtIndexPath = { _ in
+            return true
+        }
+        animatedDataSource.canMoveRowAtIndexPath = { _ in
+            return true
+        }
     }
 }
