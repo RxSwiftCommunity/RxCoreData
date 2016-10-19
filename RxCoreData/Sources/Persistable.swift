@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 public protocol Persistable {
+    associatedtype T: NSManagedObject
     
     static var entityName: String { get }
     
@@ -18,8 +19,8 @@ public protocol Persistable {
     
     var identity: String { get }
 
-    init(entity: NSManagedObject)
+    init(entity: T)
 
-    func update(entity: NSManagedObject)
+    func update(_ entity: T)
     
 }

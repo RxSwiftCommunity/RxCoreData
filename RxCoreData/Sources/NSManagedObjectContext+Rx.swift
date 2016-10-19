@@ -9,8 +9,9 @@
 import Foundation
 import CoreData
 import RxSwift
+import RxCocoa
 
-public extension NSManagedObjectContext {
+public extension Reactive where Base: NSManagedObjectContext {
     
     /**
      Executes a fetch request and returns the fetched objects as an `Observable` array of `NSManagedObjects`.
@@ -19,10 +20,12 @@ public extension NSManagedObjectContext {
      - parameter cacheName: the name of the file used to cache section information; defaults to `nil`
      - returns: An `Observable` array of `NSManagedObjects` objects that can be bound to a table view.
      */
-    func rx_entities(fetchRequest: NSFetchRequest, sectionNameKeyPath: String? = nil, cacheName: String? = nil) -> Observable<[NSManagedObject]> {
+    func entities<T: NSManagedObject>(fetchRequest: NSFetchRequest<T>,
+                  sectionNameKeyPath: String? = nil,
+                  cacheName: String? = nil) -> Observable<[T]> {
         return Observable.create { observer in
 			
-			let observerAdapter = FetchedResultsControllerEntityObserver(observer: observer, fetchRequest: fetchRequest, managedObjectContext: self, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
+			let observerAdapter = FetchedResultsControllerEntityObserver(observer: observer, fetchRequest: fetchRequest, managedObjectContext: self.base, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
 			
 			return AnonymousDisposable {
 				observerAdapter.dispose()
@@ -37,9 +40,14 @@ public extension NSManagedObjectContext {
      - parameter cacheName: the name of the file used to cache section information; defaults to `nil`
      - returns: An `Observable` array of `NSFetchedResultsSectionInfo` objects that can be bound to a table view.
      */
-    func rx_sections(fetchRequest: NSFetchRequest, sectionNameKeyPath: String? = nil, cacheName: String? = nil) -> Observable<[NSFetchedResultsSectionInfo]> {
+    func sections<T: NSManagedObject>(fetchRequest: NSFetchRequest<T>,
+                     sectionNameKeyPath: String? = nil,
+                     cacheName: String? = nil) -> Observable<[NSFetchedResultsSectionInfo]> {
         return Observable.create { observer in
-            let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                 managedObjectContext: self.base,
+                                                 sectionNameKeyPath: sectionNameKeyPath,
+                                                 cacheName: cacheName)
             
             let observerAdapter = FetchedResultsControllerSectionObserver(observer: observer, frc: frc)
             
@@ -54,33 +62,34 @@ public extension NSManagedObjectContext {
      - parameter updateAction: a throwing update action
      */
     func performUpdate(updateAction: (NSManagedObjectContext) throws -> Void) throws {
-        guard self.hasChanges else { return }
+        guard self.base.hasChanges else { return }
         
-        let privateContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        privateContext.parentContext = self
+        let privateContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        privateContext.parent = self.base
         
         try updateAction(privateContext)
         
         try privateContext.save()
         
-        try self.save()
+        try self.base.save()
     }
 }
 
-public extension NSManagedObjectContext {
+public extension Reactive where Base: NSManagedObjectContext {
     
     /**
      Creates, inserts, and returns a new `NSManagedObject` instance for the given `Persistable` concrete type (defaults to `Persistable`).
      */
-    private func createPersistable<E: Persistable>(type: E.Type = E.self) -> NSManagedObject {
-        return NSEntityDescription.insertNewObjectForEntityForName(E.entityName, inManagedObjectContext: self)
+    private func create<E: Persistable>(_ type: E.Type = E.self) -> E.T {
+        return NSEntityDescription.insertNewObject(forEntityName: E.entityName, into: self.base) as! E.T
     }
     
-    private func get<P: Persistable>(persistable: P) throws -> NSManagedObject? {
-        let fetchRequest = NSFetchRequest(entityName: P.entityName)
+    private func get<P: Persistable>(_ persistable: P) throws -> P.T? {
+        let fetchRequest: NSFetchRequest<P.T> = NSFetchRequest(entityName: P.entityName)
         fetchRequest.predicate = NSPredicate(format: "%K = %@", P.primaryAttributeName, persistable.identity)
-        let result = (try self.executeRequest(fetchRequest)) as! NSAsynchronousFetchResult
-        return result.finalResult?.first as? NSManagedObject
+        let result = (try self.base.execute(fetchRequest)) as! NSAsynchronousFetchResult<P.T>
+        print(result.finalResult)
+        return result.finalResult?.first
     }
     
     /**
@@ -88,9 +97,9 @@ public extension NSManagedObjectContext {
      - seealso: `Persistable`
      - parameter persistable: a `Persistable` object
      */
-    func delete<P: Persistable>(persistable: P) throws {
+    func delete<P: Persistable>(_ persistable: P) throws {
         if let entity = try get(persistable) {
-            self.deleteObject(entity)
+            self.base.delete(entity)
             
             do {
                 try entity.managedObjectContext?.save()
@@ -108,23 +117,25 @@ public extension NSManagedObjectContext {
      - parameter sortDescriptors: the sort descriptors for the fetch request; defaults to `nil`
      - returns: An `Observable` array of `Persistable` objects that can be bound to a table view.
      */
-    func rx_entities<P: Persistable>(type: P.Type = P.self, format: String = "", arguments: [AnyObject]? = nil, sortDescriptors: [NSSortDescriptor]? = nil) -> Observable<[P]> {
-        let fetchRequest = NSFetchRequest(entityName: P.entityName)
-        fetchRequest.predicate = NSPredicate(format: format == "" ? "1 = 1" : format, argumentArray: arguments)
-        fetchRequest.sortDescriptors = sortDescriptors
+    func entities<P: Persistable>(_ type: P.Type = P.self,
+                  predicate: NSPredicate? = nil,
+                     sortDescriptors: [NSSortDescriptor]? = nil) -> Observable<[P]> {
+        let fetchRequest: NSFetchRequest<P.T> = NSFetchRequest(entityName: P.entityName)
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors ?? [NSSortDescriptor(key: P.primaryAttributeName, ascending: true)]
         
-        return self.rx_entities(fetchRequest)
-            .map { entities in
-                entities.map(P.init)
-        }
+        return entities(fetchRequest: fetchRequest)
+            .map {
+                $0.map(P.init)
+            }
     }
     
     /**
      Attempts to fetch and update (or create if not found) a `Persistable` instance. Will throw error if fetch fails.
      - parameter persistable: a `Persistable` instance
      */
-    func update<P: Persistable>(persistable: P) throws {
-        persistable.update(try get(persistable) ?? self.createPersistable(P.self))
+    func update<P: Persistable>(_ persistable: P) throws {
+        persistable.update(try get(persistable) ?? self.create(P.self))
     }
     
 }
