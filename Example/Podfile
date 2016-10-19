@@ -1,8 +1,8 @@
 use_frameworks!
 
 target 'RxCoreData_Example' do
-  pod 'RxSwift',    '~> 3.0.0-rc.1'
-  pod 'RxCocoa',    '~> 3.0.0-rc.1'
+  pod 'RxSwift', '~> 3.0.0-rc.1'
+  pod 'RxCocoa', '~> 3.0.0-rc.1'
   pod 'RxDataSources', '~> 1.0.0-rc.1'
   pod 'RxCoreData', :path => '../'
 end
