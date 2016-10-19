@@ -1,10 +1,10 @@
 use_frameworks!
 
 target 'RxCoreData_Example' do
-#pod 'RxDataSources', :git => 'https://github.com/RxSwiftCommunity/RxDataSources.git', :branch => 'swift-3.0'
-    pod 'RxCoreData', :path => '../'
   pod 'RxSwift',    '~> 3.0.0-rc.1'
   pod 'RxCocoa',    '~> 3.0.0-rc.1'
+  pod 'RxDataSources', '~> 1.0.0-rc.1'
+  pod 'RxCoreData', :path => '../'
 end
 
 target 'RxCoreData_Tests' do

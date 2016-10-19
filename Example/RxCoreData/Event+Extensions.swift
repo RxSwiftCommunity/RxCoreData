@@ -8,8 +8,7 @@
 
 import Foundation
 import CoreData
-// Cant install RxDatasource with Cocoapods yet
-//import RxDataSources
+import RxDataSources
 import RxCoreData
 
 func == (lhs: Event, rhs: Event) -> Bool {
@@ -18,7 +17,7 @@ func == (lhs: Event, rhs: Event) -> Bool {
 
 extension Event : Equatable { }
 
-extension Event/* : IdentifiableType*/ {
+extension Event : IdentifiableType {
     typealias Identity = String
     
     var identity: Identity { return id }

@@ -10,8 +10,7 @@ import UIKit
 import CoreData
 import RxSwift
 import RxCocoa
-// Cant install RxDatasource with Cocoapods yet
-//import RxDataSources
+import RxDataSources
 import RxCoreData
 
 class ViewController: UIViewController {
@@ -54,23 +53,23 @@ class ViewController: UIViewController {
     
         
         // Animated
-        /* Cant install RxDatasource with Cocoapods yet
+
         let animatedDataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<String, Event>>()
         animatedDataSource.configureCell = { dateSource, tableView, indexPath, event in
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel?.text = "\(event.date)"
             return cell
         }
         
-        managedObjectContext.rx_entities(Event.self, sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+        managedObjectContext.rx.entities(Event.self, sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
             .map { events in
                 [AnimatableSectionModel(model: "Section 1", items: events)]
             }
-            .bindTo(tableView.rx_itemsWithDataSource(animatedDataSource))
+            .bindTo(tableView.rx.items(dataSource: animatedDataSource))
             .addDisposableTo(disposeBag)
-        */
+ 
         self.tableView.rx.itemDeleted.map { [unowned self] ip -> Event in
-                return try self.tableView.rx.modelAtIndexPath(ip)
+                return try self.tableView.rx.model(ip)
             }
             .subscribe(onNext: { [unowned self] (event) in
                 do {
