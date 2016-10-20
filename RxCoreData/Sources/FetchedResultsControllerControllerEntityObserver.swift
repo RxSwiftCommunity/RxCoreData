@@ -40,9 +40,9 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
         } else {
             NotificationCenter.default
                 .rx.notification(NSNotification.Name.NSManagedObjectContextDidSave, object: self.subscriberContext)
-                .subscribeNext() { [weak self] in
-                    self?.observingContext.mergeChanges(fromContextDidSave: $0)
-                }
+				.subscribe(onNext:{ [weak self] in
+					self?.observingContext.mergeChanges(fromContextDidSave: $0)
+				})
                 .addDisposableTo(disposeBag)
         }
 
