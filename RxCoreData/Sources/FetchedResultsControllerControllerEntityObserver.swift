@@ -16,72 +16,46 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 	typealias Observer = AnyObserver<[T]>
 	
 	fileprivate let observer: Observer
-	private let disposeBag = DisposeBag()
+	fileprivate let disposeBag = DisposeBag()
 	fileprivate let frc: NSFetchedResultsController<T>
-	private let subscriberContext: NSManagedObjectContext
-	private let observingContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
 	
-	init(observer: Observer,
-	     fetchRequest: NSFetchRequest<T>,
-	     managedObjectContext: NSManagedObjectContext,
-	     sectionNameKeyPath: String?,
-	     cacheName: String?) {
+	
+	init(observer: Observer, fetchRequest: NSFetchRequest<T>, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName: String?) {
 		self.observer = observer
-		self.subscriberContext = managedObjectContext
-		self.observingContext.parent = managedObjectContext
-		self.frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-		                                      managedObjectContext: observingContext,
-		                                      sectionNameKeyPath: sectionNameKeyPath,
-		                                      cacheName: cacheName)
+		
+
+		self.frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
 		super.init()
 		
-        if #available(iOS 10.0, *) {
-            self.observingContext.automaticallyMergesChangesFromParent = true
-        } else {
-            NotificationCenter.default
-                .rx.notification(NSNotification.Name.NSManagedObjectContextDidSave, object: self.subscriberContext)
-				.subscribe(onNext:{ [weak self] in
-					self?.observingContext.mergeChanges(fromContextDidSave: $0)
-				})
-                .addDisposableTo(disposeBag)
-        }
-
-		
-		self.observingContext.perform {
+		context.perform {
 			self.frc.delegate = self
 			
 			do {
 				try self.frc.performFetch()
-                self.sendNextElement()
 			} catch let e {
 				observer.on(.error(e))
 			}
+			
+			self.sendNextElement()
 		}
 	}
 	
-	private func sendNextElement() {
-        self.observingContext.perform {
+	fileprivate func sendNextElement() {
+		self.frc.managedObjectContext.perform {
 			let entities = self.frc.fetchedObjects ?? []
-            
-			self.subscriberContext.perform {
-				let mappedEntities = entities.flatMap { self.subscriberContext.object(with: $0.objectID) as? T}
-				self.observer.on(.next(mappedEntities))
-			}
+			self.observer.on(.next(entities))
 		}
 	}
-    
-    //If move this to extension method won't be called by delegate
-    @objc
-    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        sendNextElement()
-    }
+	
+	public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		sendNextElement()
+	}
 }
 
 extension FetchedResultsControllerEntityObserver : Disposable {
 	
 	public func dispose() {
 		frc.delegate = nil
-		NotificationCenter.default.removeObserver(self)
 	}
 	
 }
