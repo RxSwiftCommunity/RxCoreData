@@ -27,7 +27,7 @@ public extension Reactive where Base: NSManagedObjectContext {
 			
 			let observerAdapter = FetchedResultsControllerEntityObserver(observer: observer, fetchRequest: fetchRequest, managedObjectContext: self.base, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
 			
-			return AnonymousDisposable {
+			return Disposables.create {
 				observerAdapter.dispose()
 			}
         }
@@ -51,9 +51,9 @@ public extension Reactive where Base: NSManagedObjectContext {
             
             let observerAdapter = FetchedResultsControllerSectionObserver(observer: observer, frc: frc)
             
-            return AnonymousDisposable {
-                observerAdapter.dispose()
-            }
+			return Disposables.create {
+				observerAdapter.dispose()
+			}
         }
     }
     

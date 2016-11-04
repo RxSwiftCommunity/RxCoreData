@@ -23,6 +23,7 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 	init(observer: Observer, fetchRequest: NSFetchRequest<T>, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName: String?) {
 		self.observer = observer
 		
+
 		self.frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
 		super.init()
 		
