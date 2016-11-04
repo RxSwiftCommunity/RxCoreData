@@ -50,10 +50,9 @@ public extension Reactive where Base: NSManagedObjectContext {
                                                  cacheName: cacheName)
             
             let observerAdapter = FetchedResultsControllerSectionObserver(observer: observer, frc: frc)
-            
-			return Disposables.create {
-				observerAdapter.dispose()
-			}
+            return Disposables.create {
+                observerAdapter.dispose()
+            }
         }
     }
     
@@ -88,7 +87,6 @@ public extension Reactive where Base: NSManagedObjectContext {
         let fetchRequest: NSFetchRequest<P.T> = NSFetchRequest(entityName: P.entityName)
         fetchRequest.predicate = NSPredicate(format: "%K = %@", P.primaryAttributeName, persistable.identity)
         let result = (try self.base.execute(fetchRequest)) as! NSAsynchronousFetchResult<P.T>
-        print(result.finalResult)
         return result.finalResult?.first
     }
     
