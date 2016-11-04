@@ -225,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -599,7 +599,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA2571CFB1EA4A10C291F720 /* Pods-RxCoreData_Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 0.1.0;
 				INFOPLIST_FILE = RxCoreData/Info.plist;
@@ -616,7 +615,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1312AE6406B7B9929CF4EE12 /* Pods-RxCoreData_Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 0.1.0;
 				INFOPLIST_FILE = RxCoreData/Info.plist;
@@ -633,7 +631,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F37A888041BCCB082BD01BC1 /* Pods-RxCoreData_Tests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CURRENT_PROJECT_VERSION = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -652,7 +649,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75EFF89001073E0806951576 /* Pods-RxCoreData_Tests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CURRENT_PROJECT_VERSION = "";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

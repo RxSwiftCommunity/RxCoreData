@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             .addDisposableTo(disposeBag)
  
         self.tableView.rx.itemDeleted.map { [unowned self] ip -> Event in
-                return try self.tableView.rx.model(ip)
+            return try self.tableView.rx.model(at: ip)
             }
             .subscribe(onNext: { [unowned self] (event) in
                 do {
