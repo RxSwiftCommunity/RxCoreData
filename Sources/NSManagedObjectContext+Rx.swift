@@ -61,7 +61,7 @@ public extension Reactive where Base: NSManagedObjectContext {
      - parameter updateAction: a throwing update action
      */
     func performUpdate(updateAction: (NSManagedObjectContext) throws -> Void) throws {
-        let privateContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateContext.parent = self.base
         
         try updateAction(privateContext)
