@@ -1,9 +1,11 @@
+platform :"ios", "9.0"
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'RxCoreData_Example' do
-  pod 'RxSwift', '~> 3.0'
-  pod 'RxCocoa', '~> 3.0'
-  pod 'RxDataSources', '~> 1.0'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
+  pod 'RxDataSources', '~> 3.0'
   pod 'RxCoreData', :path => '../'
 end
 

@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             }.subscribe(onNext: { [weak self] (event) in
                 _ = try? self?.managedObjectContext.rx.update(event)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func configureTableView() {
@@ -54,19 +54,18 @@ class ViewController: UIViewController {
         
         // Animated
 
-        let animatedDataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<String, Event>>()
-        animatedDataSource.configureCell = { dateSource, tableView, indexPath, event in
+        let animatedDataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<String, Event>>(configureCell: { dateSource, tableView, indexPath, event in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel?.text = "\(event.date)"
             return cell
-        }
+        })
         
         managedObjectContext.rx.entities(Event.self, sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
             .map { events in
                 [AnimatableSectionModel(model: "Section 1", items: events)]
             }
-            .bindTo(tableView.rx.items(dataSource: animatedDataSource))
-            .addDisposableTo(disposeBag)
+            .bind(to: tableView.rx.items(dataSource: animatedDataSource))
+            .disposed(by: disposeBag)
  
         self.tableView.rx.itemDeleted.map { [unowned self] ip -> Event in
             return try self.tableView.rx.model(at: ip)
@@ -78,12 +77,12 @@ class ViewController: UIViewController {
                     print(error)
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
-        animatedDataSource.canEditRowAtIndexPath = { _ in
+        animatedDataSource.canEditRowAtIndexPath = { _,_  in
             return true
         }
-        animatedDataSource.canMoveRowAtIndexPath = { _ in
+        animatedDataSource.canMoveRowAtIndexPath = { _,_  in
             return true
         }
     }
