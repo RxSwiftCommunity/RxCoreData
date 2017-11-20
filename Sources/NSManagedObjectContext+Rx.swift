@@ -85,7 +85,7 @@ public extension Reactive where Base: NSManagedObjectContext {
     
     private func get<P: Persistable>(_ persistable: P) throws -> P.T? {
         let fetchRequest: NSFetchRequest<P.T> = NSFetchRequest(entityName: P.entityName)
-        fetchRequest.predicate = persistable.predicate
+        fetchRequest.predicate = persistable.predicate()
         let result = (try self.base.execute(fetchRequest)) as! NSAsynchronousFetchResult<P.T>
         return result.finalResult?.first
     }
