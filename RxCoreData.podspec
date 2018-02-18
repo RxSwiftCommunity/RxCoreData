@@ -21,11 +21,14 @@ Pod::Spec.new do |s|
     s.source                = { :git => "https://github.com/RxSwiftCommunity/RxCoreData.git", :tag => s.version.to_s }
     s.social_media_url      = "https://twitter.com/scotteg"
 
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '9.3'
+    s.osx.deployment_target = '10.11'
+    s.watchos.deployment_target = '2.0'
+    s.tvos.deployment_target = '9.0'
 
     s.source_files = 'Sources/**/*'
 
-    s.frameworks            = 'UIKit', 'CoreData'
+    s.frameworks            = 'CoreData'
 
     s.dependency 'RxSwift', '~> 4.0'
     s.dependency 'RxCocoa', '~> 4.0'
