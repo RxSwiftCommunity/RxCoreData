@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0920"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A017DCF1D7D6F550027384A"
+               BlueprintIdentifier = "F400B2E22040BEF4003F5030"
                BuildableName = "RxCoreData.framework"
-               BlueprintName = "RxCoreData"
+               BlueprintName = "RxCoreData watchOS"
                ReferencedContainer = "container:RxCoreData.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5A017DCF1D7D6F550027384A"
+            BlueprintIdentifier = "F400B2E22040BEF4003F5030"
             BuildableName = "RxCoreData.framework"
-            BlueprintName = "RxCoreData"
+            BlueprintName = "RxCoreData watchOS"
             ReferencedContainer = "container:RxCoreData.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5A017DCF1D7D6F550027384A"
+            BlueprintIdentifier = "F400B2E22040BEF4003F5030"
             BuildableName = "RxCoreData.framework"
-            BlueprintName = "RxCoreData"
+            BlueprintName = "RxCoreData watchOS"
             ReferencedContainer = "container:RxCoreData.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

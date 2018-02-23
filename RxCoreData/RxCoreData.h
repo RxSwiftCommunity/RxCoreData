@@ -6,7 +6,7 @@
 //  Copyright © 2016 RxSwiftCommunity. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for RxCoreData.
 FOUNDATION_EXPORT double RxCoreDataVersionNumber;
