@@ -34,6 +34,10 @@ extension Event : Persistable {
         return "id"
     }
     
+    var persistableIdentity: String {
+        return id
+    }
+    
     init(entity: T) {
         id = entity.value(forKey: "id") as! String
         date = entity.value(forKey: "date") as! Date
