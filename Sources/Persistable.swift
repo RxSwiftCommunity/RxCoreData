@@ -16,9 +16,9 @@ public protocol Persistable {
     
     /// The attribute name to be used to uniquely identify each instance.
     static var primaryAttributeName: String { get }
-
-    var persistableIdentity: String { get }
     
+    var identity: String { get }
+
     init(entity: T)
 
     func update(_ entity: T)
@@ -31,7 +31,7 @@ public protocol Persistable {
 public extension Persistable {
     
     func predicate() -> NSPredicate {
-        return NSPredicate(format: "%K = %@", Self.primaryAttributeName, self.persistableIdentity)
+        return NSPredicate(format: "%K = %@", Self.primaryAttributeName, self.identity)
     }
-    
+
 }
