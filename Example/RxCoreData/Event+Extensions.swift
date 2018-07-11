@@ -19,7 +19,10 @@ extension Event : Equatable { }
 
 extension Event : IdentifiableType {
     typealias Identity = String
-    
+
+    // This is adding Persistable protocol conformance for identity property implicitly
+    // Please use type conversion in case your model does not have a unique identifier of type String
+    // i. e. in case of Int: var identity: Identity { return String(id) }
     var identity: Identity { return id }
 }
 
