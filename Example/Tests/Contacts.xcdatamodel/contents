@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="phoneNumbers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhoneNumber" syncable="YES"/>
+    </entity>
+    <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Contact" syncable="YES"/>
+    </entity>
+    <entity name="PhoneNumber" representedClassName="PhoneNumber" syncable="YES" codeGenerationType="class">
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Contact" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Group" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="PhoneNumber" positionX="-54" positionY="9" width="128" height="75"/>
+    </elements>
+</model>

@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F313EA6210C94FB00D9D0F8 /* NSManagedObjectContext+ObserveObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F75E4210C948B00E834AD /* NSManagedObjectContext+ObserveObjectTests.swift */; };
+		3F8A3384210C5BCD00250BCB /* Contacts.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A3383210C5BCD00250BCB /* Contacts.xcdatamodel */; };
+		3F8A3385210C5CBE00250BCB /* Bundle+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A337C210C5AD900250BCB /* Bundle+Test.swift */; };
+		3F8A3386210C5CC100250BCB /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A337E210C5AFB00250BCB /* NSManagedObject+Extensions.swift */; };
+		3F8A3387210C5CC500250BCB /* NSManagedObjectContext+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A3380210C5B1000250BCB /* NSManagedObjectContext+Test.swift */; };
+		3F9F75E3210C939800E834AD /* NSManagedObjectContext+ObserveContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F75E1210C935900E834AD /* NSManagedObjectContext+ObserveContextTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		75696D6E47EF4301137E83D3 /* Pods_RxCoreData_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9B39454206D1A0C6433F6A /* Pods_RxCoreData_Tests.framework */; };
 		CF5023D00F002ADEF58941A0 /* Pods_RxCoreData_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2097B9C8F7CECFD35D972D /* Pods_RxCoreData_Example.framework */; };
 		D2AE78A51CF32FBA00D8411E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE78A31CF32FBA00D8411E /* Event.swift */; };
@@ -33,6 +38,12 @@
 /* Begin PBXFileReference section */
 		1312AE6406B7B9929CF4EE12 /* Pods-RxCoreData_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoreData_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxCoreData_Example/Pods-RxCoreData_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3D9B39454206D1A0C6433F6A /* Pods_RxCoreData_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCoreData_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8A337C210C5AD900250BCB /* Bundle+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Test.swift"; sourceTree = "<group>"; };
+		3F8A337E210C5AFB00250BCB /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
+		3F8A3380210C5B1000250BCB /* NSManagedObjectContext+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Test.swift"; sourceTree = "<group>"; };
+		3F8A3383210C5BCD00250BCB /* Contacts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contacts.xcdatamodel; sourceTree = "<group>"; };
+		3F9F75E1210C935900E834AD /* NSManagedObjectContext+ObserveContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+ObserveContextTests.swift"; sourceTree = "<group>"; };
+		3F9F75E4210C948B00E834AD /* NSManagedObjectContext+ObserveObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+ObserveObjectTests.swift"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RxCoreData_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxCoreData_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +52,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* RxCoreData_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxCoreData_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		609891BD0E152693BAEB65CA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		694D2F970D4D6C2D5B237BCA /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		6C2097B9C8F7CECFD35D972D /* Pods_RxCoreData_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCoreData_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +85,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F8A337B210C5AC000250BCB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F8A337C210C5AD900250BCB /* Bundle+Test.swift */,
+				3F8A337E210C5AFB00250BCB /* NSManagedObject+Extensions.swift */,
+				3F8A3380210C5B1000250BCB /* NSManagedObjectContext+Test.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		3F8A3382210C5BB100250BCB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F8A3383210C5BCD00250BCB /* Contacts.xcdatamodel */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +152,11 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				3F8A3382210C5BB100250BCB /* Resources */,
+				3F8A337B210C5AC000250BCB /* Utils */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				3F9F75E1210C935900E834AD /* NSManagedObjectContext+ObserveContextTests.swift */,
+				3F9F75E4210C948B00E834AD /* NSManagedObjectContext+ObserveObjectTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -500,7 +531,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				3F8A3384210C5BCD00250BCB /* Contacts.xcdatamodel in Sources */,
+				3F9F75E3210C939800E834AD /* NSManagedObjectContext+ObserveContextTests.swift in Sources */,
+				3F8A3386210C5CC100250BCB /* NSManagedObject+Extensions.swift in Sources */,
+				3F313EA6210C94FB00D9D0F8 /* NSManagedObjectContext+ObserveObjectTests.swift in Sources */,
+				3F8A3385210C5CBE00250BCB /* Bundle+Test.swift in Sources */,
+				3F8A3387210C5CC500250BCB /* NSManagedObjectContext+Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

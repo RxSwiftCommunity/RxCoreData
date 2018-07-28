@@ -18,7 +18,6 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 	fileprivate let disposeBag = DisposeBag()
 	fileprivate let frc: NSFetchedResultsController<T>
 	
-	
 	init(observer: Observer, fetchRequest: NSFetchRequest<T>, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName: String?) {
 		self.observer = observer
 		
@@ -49,6 +48,7 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 	public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		sendNextElement()
 	}
+
 }
 
 extension FetchedResultsControllerEntityObserver : Disposable {
