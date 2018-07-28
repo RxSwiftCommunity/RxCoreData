@@ -183,6 +183,7 @@
 				77EECB9E50343E5362FDE498 /* [CP] Embed Pods Frameworks */,
 				2E6B561F32E09B2E7FC48B85 /* 📦 Embed Pods Frameworks */,
 				3A8ED13CDBE777B8BAAC4601 /* 📦 Copy Pods Resources */,
+				81B1497C1DE64D3DEB2F0161 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,6 +206,7 @@
 				BE3F737842926DCBAEF33B1C /* [CP] Embed Pods Frameworks */,
 				25D10640889A11CBC96C9A36 /* 📦 Embed Pods Frameworks */,
 				2124F1C4EBA2827C0B8EF670 /* 📦 Copy Pods Resources */,
+				CD0F33E6F629F0617CA25311 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,6 +398,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Example/Pods-RxCoreData_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81B1497C1DE64D3DEB2F0161 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Example/Pods-RxCoreData_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8B149104208C41903E8E6A77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,19 +438,32 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Tests/Pods-RxCoreData_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCoreData/RxCoreData.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCoreData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Tests/Pods-RxCoreData_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD0F33E6F629F0617CA25311 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxCoreData_Tests/Pods-RxCoreData_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF5EA17E47B30114DF76F5C2 /* [CP] Check Pods Manifest.lock */ = {
@@ -613,7 +643,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.RxCoreData-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -633,7 +663,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.RxCoreData-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

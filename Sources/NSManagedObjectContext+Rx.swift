@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 import RxSwift
-import RxCocoa
 
 public extension Reactive where Base: NSManagedObjectContext {
     
