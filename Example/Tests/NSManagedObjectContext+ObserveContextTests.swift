@@ -1,9 +1,9 @@
 //
 //  NSManagedObjectContext+ObserveContextTests.swift
-//  RxCoreData_Example
+//  RxCoreData_Tests
 //
-//  Created by Evghenii Nicolaev on 7/28/18.
-//  Copyright © 2018 CocoaPods. All rights reserved.
+//  Created by Krunoslav Zaher on 7/28/18.
+//  Copyright © 2018 Krunoslav Zaher. All rights reserved.
 //
 
 import Foundation

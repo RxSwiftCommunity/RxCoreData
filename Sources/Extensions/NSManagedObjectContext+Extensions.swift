@@ -1,8 +1,9 @@
 //
 //  NSManagedObjectContext+Extensions.swift
-//  Differentiator
+//  RxCoreData
 //
-//  Created by Evghenii Nicolaev on 7/28/18.
+//  Created by Krunoslav Zaher on 7/28/18.
+//  Copyright © 2018 Krunoslav Zaher. All rights reserved.
 //
 
 import Foundation

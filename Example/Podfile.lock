@@ -16,9 +16,16 @@ DEPENDENCIES:
   - RxDataSources (~> 3.0)
   - RxSwift (~> 4.2)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Differentiator
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+
 EXTERNAL SOURCES:
   RxCoreData:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   Differentiator: ffe513ce1ea4e7198b89fac94d6e281c673055a9
@@ -29,4 +36,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2301a0f899260fdadebbe33712ceb07d8d35af52
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
