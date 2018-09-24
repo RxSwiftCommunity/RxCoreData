@@ -23,6 +23,13 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Differentiator
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+
 EXTERNAL SOURCES:
   RxCoreData:
     :path: "../"
