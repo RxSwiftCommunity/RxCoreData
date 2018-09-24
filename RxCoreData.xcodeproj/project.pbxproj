@@ -313,6 +313,15 @@
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0900;
 					};
+					F400B2C42040BED6003F5030 = {
+						LastSwiftMigration = 1000;
+					};
+					F400B2D32040BEEA003F5030 = {
+						LastSwiftMigration = 1000;
+					};
+					F400B2E22040BEF4003F5030 = {
+						LastSwiftMigration = 1000;
+					};
 				};
 			};
 			buildConfigurationList = 5A017DCA1D7D6F550027384A /* Build configuration list for PBXProject "RxCoreData" */;
@@ -596,8 +605,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rxswiftcommunity.RxCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -621,8 +629,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rxswiftcommunity.RxCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -646,8 +653,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rxswiftcommunity.RxCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -673,8 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rxswiftcommunity.RxCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -700,8 +705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rxswiftcommunity.RxCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -727,8 +731,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.rxswiftcommunity.RxCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
