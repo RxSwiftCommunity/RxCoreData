@@ -1,0 +1,11 @@
+framework module RxDataSources {
+  umbrella header "RxDataSources.h"
+
+  export *
+  module * { export * }
+}
+
+module RxDataSources.Swift {
+    header "RxDataSources-Swift.h"
+    requires objc
+}
