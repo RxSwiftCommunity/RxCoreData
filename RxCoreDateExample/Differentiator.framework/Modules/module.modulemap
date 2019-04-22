@@ -1,0 +1,11 @@
+framework module Differentiator {
+  umbrella header "Differentiator.h"
+
+  export *
+  module * { export * }
+}
+
+module Differentiator.Swift {
+    header "Differentiator-Swift.h"
+    requires objc
+}

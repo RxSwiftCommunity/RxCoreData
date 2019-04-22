@@ -45,6 +45,11 @@
 		5A2FAD511D7D6F73007DECCB /* FetchedResultsControllerSectionObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsControllerSectionObserver.swift; sourceTree = "<group>"; };
 		5A2FAD521D7D6F73007DECCB /* NSManagedObjectContext+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Rx.swift"; sourceTree = "<group>"; };
 		5A2FAD531D7D6F73007DECCB /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		C4A50F39229698030037E608 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		C4A50F3A229698370037E608 /* RxCoreData.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RxCoreData.podspec; sourceTree = "<group>"; };
+		C4A50F4822969D190037E608 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Differentiator.framework; sourceTree = "<group>"; };
+		C4A50F4922969D190037E608 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxDataSources.framework; sourceTree = "<group>"; };
+		C4A50F4A22969D190037E608 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxRelay.framework; sourceTree = "<group>"; };
 		F400B2D12040BED6003F5030 /* RxCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F400B2E02040BEEA003F5030 /* RxCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F400B2EF2040BEF4003F5030 /* RxCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +106,8 @@
 		5A017DC61D7D6F550027384A = {
 			isa = PBXGroup;
 			children = (
+				C4A50F39229698030037E608 /* Cartfile */,
+				C4A50F3A229698370037E608 /* RxCoreData.podspec */,
 				5A017DD21D7D6F550027384A /* RxCoreData */,
 				F400B2C12040BEBD003F5030 /* Frameworks */,
 				5A017DD11D7D6F550027384A /* Products */,
@@ -173,6 +180,9 @@
 		F470C6EF2040C1DA00B43981 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C4A50F4A22969D190037E608 /* RxRelay.framework */,
+				C4A50F4822969D190037E608 /* Differentiator.framework */,
+				C4A50F4922969D190037E608 /* RxDataSources.framework */,
 				F470C6FA2040C1DA00B43981 /* RxCocoa.framework */,
 				F470C6FB2040C1DA00B43981 /* RxSwift.framework */,
 			);
