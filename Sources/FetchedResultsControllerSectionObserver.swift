@@ -1,11 +1,3 @@
-//
-//  FetchedResultsControllerSectionObserver.swift
-//  RxCoreData
-//
-//  Created by Krunoslav Zaher on 5/18/16.
-//  Copyright © 2016 Krunoslav Zaher. All rights reserved.
-//
-
 import Foundation
 import CoreData
 import RxSwift
@@ -14,8 +6,8 @@ public final class FetchedResultsControllerSectionObserver<T: NSManagedObject> :
     
     typealias Observer = AnyObserver<[NSFetchedResultsSectionInfo]>
     
-    let observer: Observer
-    let frc: NSFetchedResultsController<T>
+    private let observer: Observer
+    private let frc: NSFetchedResultsController<T>
     
     init(observer: Observer, frc: NSFetchedResultsController<T>) {
         self.observer = observer
@@ -34,21 +26,18 @@ public final class FetchedResultsControllerSectionObserver<T: NSManagedObject> :
         sendNextElement()
     }
     
-    fileprivate func sendNextElement() {
+    private func sendNextElement() {
         let sections = self.frc.sections ?? []
         observer.on(.next(sections))
     }
     
-    @objc
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         sendNextElement()
     }
-}
-
-extension FetchedResultsControllerSectionObserver : Disposable {
     
     public func dispose() {
         frc.delegate = nil
     }
-    
 }
+
+extension FetchedResultsControllerSectionObserver : Disposable { }
