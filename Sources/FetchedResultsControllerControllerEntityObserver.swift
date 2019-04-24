@@ -1,11 +1,3 @@
-//
-//  FetchedResultsControllerEntityObserver.swift
-//  RxCoreData
-//
-//  Created by Krunoslav Zaher on 5/18/16.
-//  Copyright © 2016 Krunoslav Zaher. All rights reserved.
-//
-
 import Foundation
 import CoreData
 import RxSwift
@@ -14,9 +6,8 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 	
 	typealias Observer = AnyObserver<[T]>
 	
-	fileprivate let observer: Observer
-	fileprivate let disposeBag = DisposeBag()
-	fileprivate let frc: NSFetchedResultsController<T>
+	private let observer: Observer
+	private let frc: NSFetchedResultsController<T>
 	
 	
 	init(observer: Observer, fetchRequest: NSFetchRequest<T>, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName: String?) {
@@ -39,7 +30,7 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 		}
 	}
 	
-	fileprivate func sendNextElement() {
+	private func sendNextElement() {
 		self.frc.managedObjectContext.perform {
 			let entities = self.frc.fetchedObjects ?? []
 			self.observer.on(.next(entities))
@@ -49,12 +40,12 @@ public final class FetchedResultsControllerEntityObserver<T: NSManagedObject> : 
 	public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		sendNextElement()
 	}
+    /// Delegate implementation for `Disposable`
+    /// required methods - This is kept in here
+    /// to make `frc` private.
+    public func dispose() {
+        frc.delegate = nil
+    }
 }
 
-extension FetchedResultsControllerEntityObserver : Disposable {
-	
-	public func dispose() {
-		frc.delegate = nil
-	}
-	
-}
+extension FetchedResultsControllerEntityObserver : Disposable { }
