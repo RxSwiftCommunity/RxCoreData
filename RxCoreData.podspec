@@ -27,10 +27,11 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.3'
     s.osx.deployment_target = '10.12'
-    s.watchos.deployment_target = '2.0'
+    s.watchos.deployment_target = '3.0'
     s.tvos.deployment_target = '9.0'
 
-    s.source_files = 'Sources/**/*'
+    s.source_files  = 'Sources/**/*.{swift}'
+    s.exclude_files = 'Sources/*.{plist}',  'Sources/**/*.{plist}'
     s.frameworks            = 'CoreData'
     s.swift_version = '5.0'
     s.dependency 'RxSwift', '~> 5.0'
