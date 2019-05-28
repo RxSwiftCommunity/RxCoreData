@@ -16,11 +16,22 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-RxCoreData is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+RxCoreData is available via [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](http://cocoapods.org).
+
+### Carthage
+
+To install RxCoreData via Carthage, simply add the following line to your Cartfile:
 
 ```ruby
-pod "RxCoreData", "~> 0.5.1"
+github "RxSwiftCommunity/RxCoreData" ~> 1.0.0
+```
+
+### CocoaPods
+
+To install RxCoreData via CocoaPods, simply add the following line to your Podfile:
+
+```ruby
+pod "RxCoreData", "~> 1.0.0"
 ```
 
 ## Author
