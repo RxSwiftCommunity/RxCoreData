@@ -20,6 +20,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 
+
 timeline.xctimeline
 
 # Bundler
@@ -42,4 +43,6 @@ Carthage/Build
 # Swift Package Manager
 #
 .build/
+.swiftpm/
+Package.resolved
 Packages/
