@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.3'
+use_frameworks!
+
+target 'RxCoreDateExample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  
+  # Pods for RxCoreDateExample
+  pod 'RxCoreData', :path => '../'
+  pod 'RxSwift', '~> 6.0.0'
+  pod 'RxCocoa', '~> 6.0.0'
+  pod 'RxDataSources', '~> 5.0.0'
+
+  target 'RxCoreDateExampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
