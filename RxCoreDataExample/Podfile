@@ -7,9 +7,9 @@ target 'RxCoreDateExample' do
   
   # Pods for RxCoreDateExample
   pod 'RxCoreData', :path => '../'
-  pod 'RxSwift', '~> 6.0.0'
-  pod 'RxCocoa', '~> 6.0.0'
-  pod 'RxDataSources', '~> 5.0.0'
+  pod 'RxSwift', '~> 6.0'
+  pod 'RxCocoa', '~> 6.0'
+  pod 'RxDataSources', '~> 5.0'
 
   target 'RxCoreDateExampleTests' do
     inherit! :search_paths
